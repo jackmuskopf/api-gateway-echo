@@ -1,0 +1,19 @@
+service: apigw-echo
+provider:
+  name: aws
+  runtime: python3.7
+  profile: sandbox
+  stage: ${opt:stage, 'develop'}
+  apiKeys:
+    - name: ${self:service}-${self:provider.stage}-mainKey
+  deploymentBucket:
+    name: cloud-automation-serverless-sandbox
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+            method: GET
+            path: /echo
+            private: true
