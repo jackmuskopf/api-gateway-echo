@@ -6,8 +6,6 @@ provider:
   stage: ${opt:stage, 'develop'}
   apiKeys:
     - name: ${self:service}-${self:provider.stage}-mainKey
-  deploymentBucket:
-    name: cloud-automation-serverless-sandbox
 
 functions:
   hello:
