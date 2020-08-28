@@ -8,8 +8,8 @@ provider:
     - name: ${self:service}-${self:provider.stage}-mainKey
 
 functions:
-  hello:
-    handler: handler.hello
+  echo:
+    handler: handler.echo
     events:
       - http:
             method: GET
